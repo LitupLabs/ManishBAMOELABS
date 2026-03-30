@@ -1,43 +1,153 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<definitions xmlns="https://www.omg.org/spec/DMN/20240513/MODEL/" expressionLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/" namespace="https://kie.org/dmn/_5DA5910D-26FB-4335-8F40-F11C2327EC51" id="_F61EEFFD-FACA-4116-AE47-E740AD0679D8" name="DMN_0828A6D8-19E1-4271-B38C-340FD6974CAC" xmlns:dmndi="https://www.omg.org/spec/DMN/20230324/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" xmlns:kie="https://kie.org/dmn/extensions/1.0">
-  <decision name="New Decision" id="_62A6A6DC-AE62-49D8-BBA8-12508F51E770">
-    <variable name="New Decision" id="_C57C740C-8157-4DD2-A6DD-890B4E3608ED" />
-    <decisionTable id="_DE24D2DF-BAE3-4C38-A503-2F21A318A6D0" hitPolicy="UNIQUE" label="New Decision">
-      <input id="_65A2A392-E283-4549-B5EE-D79964AF9FDA">
-        <inputExpression id="_F7199A53-9D60-48DB-9C83-019356EC186C">
-          <text>Input-1</text>
+<definitions xmlns="https://www.omg.org/spec/DMN/20240513/MODEL/" xmlns:dmndi="https://www.omg.org/spec/DMN/20230324/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" xmlns:kie="https://kie.org/dmn/extensions/1.0" expressionLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/" namespace="https://kie.org/dmn/_5DA5910D-26FB-4335-8F40-F11C2327EC51" id="_F61EEFFD-FACA-4116-AE47-E740AD0679D8" name="DMN_0828A6D8-19E1-4271-B38C-340FD6974CAC">
+  <itemDefinition id="_409BD77B-C36A-4381-9F61-6931991D1C1C" name="LoanOffer" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+    <itemComponent id="_E0A2E627-D3F4-4196-9B15-430B91C29429" name="decision" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>string</typeRef>
+    </itemComponent>
+    <itemComponent id="_29F498D7-F8C7-4E21-8F74-41BA74DCE93F" name="interestRate" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>number</typeRef>
+    </itemComponent>
+  </itemDefinition>
+  <itemDefinition id="_2DFB63F9-65FA-4A5A-88C8-F65B673E49D7" name="LoanApplication" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+    <itemComponent id="_CD205FD0-BCAD-4875-A134-D456ED877B6A" name="loan" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>Loan</typeRef>
+    </itemComponent>
+    <itemComponent id="_38780546-CF13-4744-A0E4-9B6233DB7604" name="customer" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>Customer</typeRef>
+    </itemComponent>
+  </itemDefinition>
+  <itemDefinition id="_6C4F3AAF-71D6-4E03-AA28-F98A1A04B1D2" name="Loan" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+    <itemComponent id="_50E9D760-D46C-4575-A1C2-D8B8D5738E13" name="tenure" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>number</typeRef>
+    </itemComponent>
+    <itemComponent id="_3D8527A8-EC53-46A9-96A2-6C6185B2160A" name="amount" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>number</typeRef>
+    </itemComponent>
+  </itemDefinition>
+  <itemDefinition id="_FDFC66BF-B166-450A-9353-CC5B94626511" name="Customer" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+    <itemComponent id="_06A8693E-87C0-465B-B3F1-AE030D860526" name="segment" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>string</typeRef>
+    </itemComponent>
+    <itemComponent id="_04526E23-69A8-4D42-B946-F72CE187AFE5" name="creditScore" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>number</typeRef>
+    </itemComponent>
+  </itemDefinition>
+  <decision name="Loan Offer" id="_62A6A6DC-AE62-49D8-BBA8-12508F51E770">
+    <variable name="Loan Offer" id="_C57C740C-8157-4DD2-A6DD-890B4E3608ED" typeRef="LoanOffer" />
+    <informationRequirement id="_D0A63ADE-09A1-4385-943A-EF11EF72AEF7">
+      <requiredInput href="#_FA688402-E284-4168-ABB4-F34DD87F778D" />
+    </informationRequirement>
+    <decisionTable id="_DE24D2DF-BAE3-4C38-A503-2F21A318A6D0" hitPolicy="UNIQUE" label="Loan Offer" typeRef="LoanOffer">
+      <input id="_5AF6005F-648A-4F8E-8CB7-9660C009F395">
+        <inputExpression id="_CA7D5C6B-00C8-485D-8E98-1EEC385F4A1C" typeRef="number">
+          <text>LoanApplication.customer.creditScore</text>
         </inputExpression>
       </input>
-      <output id="_95030B53-4B54-486B-9D75-8C753080B75F" />
+      <input id="_65A2A392-E283-4549-B5EE-D79964AF9FDA">
+        <inputExpression id="_F7199A53-9D60-48DB-9C83-019356EC186C" typeRef="number">
+          <text>LoanApplication.loan.amount</text>
+        </inputExpression>
+      </input>
+      <output id="_95030B53-4B54-486B-9D75-8C753080B75F" name="interestRate" typeRef="number" />
+      <output id="_31A8178D-BA71-43E3-B0A5-C4BD598C87B9" name="decision" typeRef="string" />
       <annotation name="Annotations" />
       <rule id="_57356CCD-5D3A-47E9-8AA5-8812034BD668">
+        <inputEntry id="_7E392FEF-4481-4D2C-B030-2494116D1A54">
+          <text>&gt;=750</text>
+        </inputEntry>
         <inputEntry id="_D96E4F30-51AF-43D3-A161-7BC9ED002422">
           <text>-</text>
         </inputEntry>
         <outputEntry id="_B3786ADB-82E6-48F0-9EC1-C02FED3BBC42">
-          <text></text>
+          <text>8</text>
+        </outputEntry>
+        <outputEntry id="_DE08ACFF-79DA-40F6-AA81-00A68423D61A">
+          <text>&quot;APPROVE&quot;</text>
         </outputEntry>
         <annotationEntry>
           <text>// Your annotations here</text>
         </annotationEntry>
       </rule>
+      <rule id="_398EBBC1-247C-47DC-A9CE-27C09E12E20D">
+        <inputEntry id="_DED0043E-129E-40D7-B144-3F371A70ABF6">
+          <text>[650-749]</text>
+        </inputEntry>
+        <inputEntry id="_2E943F33-3FB7-4AEB-8194-6D2FFE8F621B">
+          <text>&lt;50000</text>
+        </inputEntry>
+        <outputEntry id="_42627D46-995B-4806-8E35-02D447111116">
+          <text>9</text>
+        </outputEntry>
+        <outputEntry id="_6EA57CBB-C023-43E7-BDCD-DDCC899AD5BA">
+          <text>&quot;APPROVE&quot;</text>
+        </outputEntry>
+        <annotationEntry>
+          <text></text>
+        </annotationEntry>
+      </rule>
+      <rule id="_E6E1372E-79DE-44DF-B742-9C830A7C0C65">
+        <inputEntry id="_BF2CDE0B-41F4-4967-AE56-9B1AEEFFC65A">
+          <text>[650-749]</text>
+        </inputEntry>
+        <inputEntry id="_BB58A933-A2E5-4382-886C-1F6A836D585C">
+          <text>&gt;=50000</text>
+        </inputEntry>
+        <outputEntry id="_A26C31F6-85C7-4FA6-BCDC-AC831A4C018E">
+          <text>10</text>
+        </outputEntry>
+        <outputEntry id="_EABCE0F7-7D2D-4093-81C2-6CBA0A4355AF">
+          <text>&quot;APPROVE&quot;</text>
+        </outputEntry>
+        <annotationEntry>
+          <text></text>
+        </annotationEntry>
+      </rule>
+      <rule id="_077B5CFB-8DDF-4F5A-9369-86FCCF559FFC">
+        <inputEntry id="_B0334ECB-FD2E-4576-AC14-A6CA83C953D5">
+          <text>&lt;650</text>
+        </inputEntry>
+        <inputEntry id="_01F1AB84-8E5E-4384-ABF7-A6F728315E7E">
+          <text>-</text>
+        </inputEntry>
+        <outputEntry id="_53B1E475-86B7-4916-B745-A6CED536959D">
+          <text>10</text>
+        </outputEntry>
+        <outputEntry id="_18EBD439-5796-4764-8D17-687E0C128DA2">
+          <text>&quot;REJECT&quot;</text>
+        </outputEntry>
+        <annotationEntry>
+          <text></text>
+        </annotationEntry>
+      </rule>
     </decisionTable>
   </decision>
+  <inputData name="LoanApplication" id="_FA688402-E284-4168-ABB4-F34DD87F778D">
+    <variable name="LoanApplication" id="_40C34B52-D585-400E-9A61-E4B89707A1F6" typeRef="LoanApplication" />
+  </inputData>
   <dmndi:DMNDI>
     <dmndi:DMNDiagram id="_23363C18-712B-45D2-9BDB-5AC6FBBCCE7C" name="Default DRD" useAlternativeInputDataShape="false">
       <di:extension>
         <kie:ComponentsWidthsExtension>
           <kie:ComponentWidths dmnElementRef="_DE24D2DF-BAE3-4C38-A503-2F21A318A6D0">
             <kie:width>60</kie:width>
+            <kie:width>365</kie:width>
+            <kie:width>347</kie:width>
             <kie:width>118</kie:width>
-            <kie:width>118</kie:width>
-            <kie:width>240</kie:width>
+            <kie:width>100</kie:width>
+            <kie:width>371</kie:width>
           </kie:ComponentWidths>
         </kie:ComponentsWidthsExtension>
       </di:extension>
       <dmndi:DMNShape id="_78CC6E6D-7DFA-4259-9372-B04FD54ED783" dmnElementRef="_62A6A6DC-AE62-49D8-BBA8-12508F51E770" isCollapsed="false" isListedInputData="false">
-        <dc:Bounds x="100" y="100" width="160" height="80" />
+        <dc:Bounds x="160" y="-60" width="160" height="80" />
       </dmndi:DMNShape>
+      <dmndi:DMNShape id="_5CE789D6-6318-486E-8367-D3FD92646CF8" dmnElementRef="_FA688402-E284-4168-ABB4-F34DD87F778D" isCollapsed="false" isListedInputData="false">
+        <dc:Bounds x="160" y="140" width="160" height="80" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="_2FAECEB4-2278-43FC-A32E-BD907A72913B" dmnElementRef="_D0A63ADE-09A1-4385-943A-EF11EF72AEF7" sourceElement="_5CE789D6-6318-486E-8367-D3FD92646CF8" targetElement="_78CC6E6D-7DFA-4259-9372-B04FD54ED783">
+        <di:waypoint x="240" y="180" />
+        <di:waypoint x="240" y="-20" />
+      </dmndi:DMNEdge>
     </dmndi:DMNDiagram>
   </dmndi:DMNDI>
 </definitions>
