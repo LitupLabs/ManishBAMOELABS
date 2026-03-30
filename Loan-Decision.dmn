@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<definitions xmlns="https://www.omg.org/spec/DMN/20240513/MODEL/" expressionLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/" namespace="https://kie.org/dmn/_5DA5910D-26FB-4335-8F40-F11C2327EC51" id="_F61EEFFD-FACA-4116-AE47-E740AD0679D8" name="DMN_0828A6D8-19E1-4271-B38C-340FD6974CAC" xmlns:dmndi="https://www.omg.org/spec/DMN/20230324/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" xmlns:kie="https://kie.org/dmn/extensions/1.0">
+  <decision name="New Decision" id="_62A6A6DC-AE62-49D8-BBA8-12508F51E770">
+    <variable name="New Decision" id="_C57C740C-8157-4DD2-A6DD-890B4E3608ED" />
+    <decisionTable id="_DE24D2DF-BAE3-4C38-A503-2F21A318A6D0" hitPolicy="UNIQUE" label="New Decision">
+      <input id="_65A2A392-E283-4549-B5EE-D79964AF9FDA">
+        <inputExpression id="_F7199A53-9D60-48DB-9C83-019356EC186C">
+          <text>Input-1</text>
+        </inputExpression>
+      </input>
+      <output id="_95030B53-4B54-486B-9D75-8C753080B75F" />
+      <annotation name="Annotations" />
+      <rule id="_57356CCD-5D3A-47E9-8AA5-8812034BD668">
+        <inputEntry id="_D96E4F30-51AF-43D3-A161-7BC9ED002422">
+          <text>-</text>
+        </inputEntry>
+        <outputEntry id="_B3786ADB-82E6-48F0-9EC1-C02FED3BBC42">
+          <text></text>
+        </outputEntry>
+        <annotationEntry>
+          <text>// Your annotations here</text>
+        </annotationEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <dmndi:DMNDI>
+    <dmndi:DMNDiagram id="_23363C18-712B-45D2-9BDB-5AC6FBBCCE7C" name="Default DRD" useAlternativeInputDataShape="false">
+      <di:extension>
+        <kie:ComponentsWidthsExtension>
+          <kie:ComponentWidths dmnElementRef="_DE24D2DF-BAE3-4C38-A503-2F21A318A6D0">
+            <kie:width>60</kie:width>
+            <kie:width>118</kie:width>
+            <kie:width>118</kie:width>
+            <kie:width>240</kie:width>
+          </kie:ComponentWidths>
+        </kie:ComponentsWidthsExtension>
+      </di:extension>
+      <dmndi:DMNShape id="_78CC6E6D-7DFA-4259-9372-B04FD54ED783" dmnElementRef="_62A6A6DC-AE62-49D8-BBA8-12508F51E770" isCollapsed="false" isListedInputData="false">
+        <dc:Bounds x="100" y="100" width="160" height="80" />
+      </dmndi:DMNShape>
+    </dmndi:DMNDiagram>
+  </dmndi:DMNDI>
+</definitions>
